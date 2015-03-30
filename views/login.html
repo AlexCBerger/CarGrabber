@@ -1,0 +1,11 @@
+<form name="liform" id="liform" ng-submit="lictrl.submitLogin()">
+	<h3>Log In for My CarGrabber Account</h3>
+	<div class="form-group">
+		<input type="text" id="signup_email" placeholder="Email Address" ng-model="lictrl.user.email" required></input>
+	</div>
+	<div class="form-group">
+		<input id="signup_password" type="password" placeholder="Password" ng-model="lictrl.user.password" required=></input>
+	</div>
+	<input type="submit" value="Log In"></input>
+	<a href="#" class="btn" ng-click="lictrl.showLogin = false">cancel</a>
+</form>

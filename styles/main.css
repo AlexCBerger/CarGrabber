@@ -1,0 +1,138 @@
+div#top a {
+	margin-left: 150px;
+}
+
+nav {
+	background-color: black;
+}
+
+nav.navbar {
+	padding: 0px 150px
+}
+
+nav .navbar-header a:hover {
+	color: grey;
+}
+
+nav ul a:hover {
+	color: black;
+}
+
+nav#top-nav.navbar {
+	border-radius: 0;
+}
+
+nav a {
+	color: white;
+}
+
+
+.jumbotron {
+	background-color: grey;
+}
+
+#search #form {
+	float: left;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 20px;
+	font-size: 18px;
+	background-color: #eee;
+}
+
+#search form  .form-inline {
+	margin: 10px;
+}
+
+#search form  .form-group {
+	margin: 5px;
+}
+
+#search form select {
+	width: 100px;
+
+}
+
+#search form .submit {
+	margin-left: 15px;
+	background-color: #aaa;
+	
+}
+
+#content .row {
+	text-align: center;
+}
+
+
+aside#popular {
+	float: right;
+}
+
+footer {
+	width: 100%;
+	background-color: black;
+	color: white;
+	padding: 15px;
+	font-size: 15px;
+	text-align: center;
+}
+
+
+
+
+.sign {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background-color: black;
+	opacity: 0.6;
+}
+
+.sign-form form {
+	position: absolute;
+	background-color: white;
+	opacity: 1;
+	padding: 20px;
+	border: 1px solid grey;
+	border-radius: 5px;
+	text-align: center;
+	z-index: 20;
+	width: 493px;
+	height: 382px;
+	/*have to explicitly set width and height so that jquery's width() function could get the value*/
+}
+
+#login-form form {
+	height: 280px;
+}
+
+.sign-form form h3 {
+	padding-bottom: 20px;
+}
+
+.sign-form .form-group input {
+	width: 350px;
+	border: 1px solid grey;
+	height: 40px;
+	font-size: 18px;
+	padding: 15px;
+
+}
+
+
+
+/* CSS Clear Hack: apply this to the containing element.
+	http://css-tricks.com/snippets/css/clear-fix/
+*/
+.group:before,
+.group:after {
+	content:"";
+	display:table;
+}
+.group:after {
+	clear:both;
+}
+.group {
+	zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
