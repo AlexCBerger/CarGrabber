@@ -1,31 +1,32 @@
-angular.module('car3380',[]).controller('mainCtrl', ['UserService', function(UserService) {
+angular.module('car3380').controller('mainCtrl', ['UserService', function(UserService) {
 	var self = this;
 
 	self.UserService = UserService;
+
+	self.user = {};
+
+	UserService.session().then(function(success) {
+		//self.showSignup = false; should be put in here.
+    	// $location.path('/');
+    	//console.log(success.data);
+    	self.user = success.data;
+    }, function(error) {
+     	self.errorMessage = error.data.msg;
+    });
 
 }]).controller('topnav', [function() {
 	
 	var self = this;
 
-	self.tabs = ["Cars for sale", "Sell my car", "Reviews"];
+	//self.tabs = [{"name" : "Cars for sale", "url" : "#/buy"}, {"name" : "Sell my car", "url" : "#/sell"}, {"name" : "Reviews", "url" : "#/reviews"}];
 
-	
-
-
-	
-
-	
-
-	self.login = function() {
-
-	}
 	
 }]).controller('signupCtrl', ['UserService', '$location', function(UserService, $location){
 
 	var self = this;
 
 	self.showSignup = false;
-	self.user = {email: '', cfemail: '', password: '', cfpassword: ''};
+	self.user = {username: '', email: '', cfemail: '', password: '', cfpassword: ''};
 
 	self.signup = function() {
 		self.showSignup = true;
@@ -48,9 +49,11 @@ angular.module('car3380',[]).controller('mainCtrl', ['UserService', function(Use
 	};
 
 	self.submitSignup = function() {
-		self.showSignup = false; //for test convenient
+		//self.showSignup = false; //for test convenient
 		UserService.signup(self.user).then(function(success) {
 			//self.showSignup = false; should be put in here.
+			self.showSignup = false;
+			console.log(success.data);
         	$location.path('/');
         }, function(error) {
          	self.errorMessage = error.data.msg;
@@ -83,13 +86,39 @@ angular.module('car3380',[]).controller('mainCtrl', ['UserService', function(Use
 	};
 
 	self.submitLogin = function() {
-		self.showLogin = false; //for test convenient
+		//self.showLogin = false; //for test convenient
 		UserService.login(self.user).then(function(success) {
 			//self.showSignup = false; should be put in here.
+			self.showLogin = false;
+
         	$location.path('/');
         }, function(error) {
          	self.errorMessage = error.data.msg;
         })
+	};
+
+}]).controller('UserCtrl', ['UserService', '$location', function(UserService, $location){
+
+	var self = this;
+
+
+	self.logout = function() {
+		UserService.logout().then(function(success) {
+			$location.path('/');
+			
+		}, function(error) {
+			self.errorMessage = error.data;
+		});
+	};
+
+	self.Editprofile = function() {
+		// self.showLogin = false; //for test convenient
+		// UserService.login(self.user).then(function(success) {
+		// 	//self.showSignup = false; should be put in here.
+  //       	$location.path('/');
+  //       }, function(error) {
+  //        	self.errorMessage = error.data;
+  //       })
 	};
 
 }]).controller('searchform', ['carService', function(carService) {

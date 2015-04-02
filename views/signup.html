@@ -1,6 +1,9 @@
 <form id="suform" ng-submit="suctrl.submitSignup()">
 	<h3>Sign Up for a My CarGrabber Account</h3>
 	<div class="form-group">
+		<input type="text" id="signup_username" placeholder="Username" ng-model="suctrl.user.username" required></input>
+	</div>
+	<div class="form-group">
 		<input type="text" id="signup_email" placeholder="Email Address" ng-model="suctrl.user.email" required></input>
 	</div>
 	<div class="form-group">
@@ -13,5 +16,5 @@
 		<input id="signup_password_confirm" type="password" placeholder="Confirm Password" ng-model="suctrl.user.cfpassword" required></input>
 	</div>
 	<input type="submit" value="Sign Up"></input>
-	<a href="#" class="btn" ng-click="suctrl.showSignup = false">cancel</a>
+	<a href="" class="btn" ng-click="suctrl.showSignup = false">cancel</a>
 </form>

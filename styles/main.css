@@ -27,6 +27,8 @@ nav a {
 }
 
 
+
+
 .jumbotron {
 	background-color: grey;
 }
@@ -58,6 +60,11 @@ nav a {
 	background-color: #aaa;
 	
 }
+
+#search form span {
+	margin-left: 10px;
+}
+
 
 #content .row {
 	text-align: center;
@@ -99,7 +106,7 @@ footer {
 	text-align: center;
 	z-index: 20;
 	width: 493px;
-	height: 382px;
+	height: 432px;
 	/*have to explicitly set width and height so that jquery's width() function could get the value*/
 }
 
@@ -119,6 +126,25 @@ footer {
 	padding: 15px;
 
 }
+
+.caret {
+	margin-left: 5px;
+}
+
+
+
+/* full search page --begin */
+#formwrapper {
+	width: 500px;
+	height: 605px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+/* full search page --end */
 
 
 
