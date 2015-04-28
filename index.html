@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- comment -->
-<!-- new comment -->
 <html ng-app="car3380">
 	<head>
 		<meta charset="utf-8">
@@ -42,15 +40,15 @@
 									<li><a href="#/buy">Cars for sale</a></li>
 									<li><a href="#/sell" ng-click="" ng-show="mctrl.UserService.isLoggedIn">Sell my car</a>
 										<a href="#/" ng-hide="mctrl.UserService.isLoggedIn" ng-click="lictrl.login()">Sell my car</a></li>
-									<li><a href="#/reviews">Reviews</a></li>
+									<li><a href="#/">About</a></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
 									<li ng-hide="mctrl.UserService.isLoggedIn"><a href="" ng-click="lictrl.login()">Sign in</a></li>
 									<li ng-hide="mctrl.UserService.isLoggedIn"><a href="" ng-click="suctrl.signup()">Sign up</a></li>
 									<li ng-controller="UserCtrl as userctrl" ng-show="mctrl.UserService.isLoggedIn" class="dropdown">
-										<a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{mctrl.user.username}}<span class="caret"></span></a>
+										<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{mctrl.user.username}}<span class="caret"></span></a>
 										<ul class="dropdown-menu" role="menu">
-											<li ng-show="mctrl.UserService.isLoggedIn"><a href="" ng-click="">Edit profile</a></li>
+											<li ng-show="mctrl.UserService.isLoggedIn"><a href="#/profile" ng-click="">Edit profile</a></li>
 											<li ng-show="mctrl.UserService.isLoggedIn"><a href="" ng-click="userctrl.logout()">Sign Out</a></li>
 										</ul>
 									</li>
