@@ -52,9 +52,16 @@ angular.module('car3380').controller('mainCtrl', ['UserService', function(UserSe
 		//self.showSignup = false; //for test convenient
 		UserService.signup(self.user).then(function(success) {
 			//self.showSignup = false; should be put in here.
-			self.showSignup = false;
+			if(success.data == 0) {
+				self.showSignup = true;
+			} else {
+				self.showSignup = false;
+				location.reload(true);
+				$location.path('/');
+			}
+			
 			console.log(success.data);
-        	$location.path('/');
+        	
         }, function(error) {
          	self.errorMessage = error.data.msg;
         })
@@ -89,9 +96,15 @@ angular.module('car3380').controller('mainCtrl', ['UserService', function(UserSe
 		//self.showLogin = false; //for test convenient
 		UserService.login(self.user).then(function(success) {
 			//self.showSignup = false; should be put in here.
+		if(success.data == 0) {
+			self.showLogin = true;
+		} else {
 			self.showLogin = false;
+			location.reload(true);
+			$location.path('/');
+		}
+		console.log(success.data);
 
-        	$location.path('/');
         }, function(error) {
          	self.errorMessage = error.data.msg;
         })
@@ -112,7 +125,6 @@ angular.module('car3380').controller('mainCtrl', ['UserService', function(UserSe
 	};
 
 	self.Editprofile = function() {
-		// self.showLogin = false; //for test convenient
 		// UserService.login(self.user).then(function(success) {
 		// 	//self.showSignup = false; should be put in here.
   //       	$location.path('/');
@@ -121,21 +133,11 @@ angular.module('car3380').controller('mainCtrl', ['UserService', function(UserSe
   //       })
 	};
 
-}]).controller('searchform', ['carService', function(carService) {
+}]).controller('searchform', ['carService', '$location', function(carService, $location) {
 	var self = this;
 
-	//test****
 	self.carService = carService;
-	self.returnval = 0;
-	self.submit = function(){
-		carService.getOne().then(function(success) {
-			self.returnval = success.data;
-			console.dir(success);
-		}, function(error) {
-			alert("Asdads");
-		});
-	};
-	//******
+
 
 	self.makes = {
 		"Acura": ["model1", "model2"], 
@@ -143,10 +145,58 @@ angular.module('car3380').controller('mainCtrl', ['UserService', function(UserSe
 		"Audi": ["model1", "model45"]
 	};
 
+
+	// self.results = {};
+
 	self.prices = [];
 	for(var i = 0; i < (100000/5000); i++) {
 		self.prices[i] = (i+1) * 5000;
 	}
+
+
+	//here should use a ajax to retrieve models and makes;
+	carService.getMakes().then(function(success) {
+
+		//same thing in the service
+		//self.makes = JSON.parse(success.data);
+		
+	}, function(error) {
+		//alert("Asdads");
+	});
+
+
+
+	// submit search form
+	self.submit = function() {
+		//submit the form 
+		carService.submitForm(search).then(function(success) {
+			//self.showSignup = false; should be put in here.
+			self.results = success.data;
+			console.log(self.results);
+			//redirect to #result
+        	$location.path('/results');
+        }, function(error) {
+         	self.errorMessage = error.data.msg;
+        }
+		
+	)};
+
+	
+	
+}]).controller('sellCtrl', ['UserService', '$location', function(UserService, $location) {
+	var self = this;
+
+	self.sell = {};
+
+	self.submit = function() {
+		UserService.sellCar(self.sell).then(function(success) {
+        	$location.path('/');
+		console.dir(success.data);
+        }, function(error) {
+         	self.errorMessage = error.data.msg;
+        })
+	}
+
 }]).controller('content', [function() {
 	var self = this;
 

@@ -8,17 +8,17 @@
 								<div class="form-inline">
 									<div class="form-group">
 										<label for="make">make: </label>
-										<select id="make" ng-model="sfctrl.selectedMake" ng-options="make for (make, models) in sfctrl.makes" ></select>
+										<select id="make" ng-model="sfctrl.search.selectedMake" ng-options="make for (make, models) in sfctrl.makes" ></select>
 									</div>
 									<div class="form-group">
 										<label for="model">model: </label>
-										<select id="model" ng-model="sfctrl.selectedModel" ng-options="model for model in sfctrl.selectedMake"></select>
+										<select id="model" ng-model="sfctrl.search.selectedModel" ng-options="model for model in sfctrl.search.selectedMake"></select>
 									</div>
 								</div>
 								<div class="form-inline">
 									<div class="form-group">
 										<label for="price">price: </label>
-										<select id="price" ng-model="sfctrl.selectedPrice" ng-options="price for price in sfctrl.prices" ></select>
+										<select id="price" ng-model="sfctrl.search.selectedPrice" ng-options="price for price in sfctrl.prices" ></select>
 									</div>
 									<div class="form-group">
 										<label for="someother">someotheropt: </label>
@@ -27,7 +27,7 @@
 								</div>
 
 								<input type="submit" value="Search" class="submit" />
-								<span><a href="#/search">More options</a></span>
+								<!-- <span><a href="#/search">More options</a></span> -->
 						</form>
 						<!-- this div is for test -->
 						<!-- <div>{{sfctrl.returnval}}</div> -->
