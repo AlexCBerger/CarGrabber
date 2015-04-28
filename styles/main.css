@@ -123,7 +123,8 @@ footer {
 	border: 1px solid grey;
 	height: 40px;
 	font-size: 18px;
-	padding: 15px;
+	padding: 0 15px;
+	line-height: 18px;
 
 }
 
@@ -142,6 +143,71 @@ footer {
 	margin-right: auto;
 }
 
+
+/* for profile */
+
+#profile {
+	width: 800px;
+	margin: 20px auto;
+	background-color: #eee;
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 50px;
+}
+
+#profile form {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#profile h1 {
+	margin-left: auto;
+	margin-right: auto; 
+	text-align: center;
+}
+
+#profile label {
+	width: 150px;	
+}
+
+
+
+/* for selling cars */
+#sell {
+	width: 1000px;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	padding-top: 20px;
+	background-color: #eee;
+}
+
+#sell form {
+	/*text-align: left;*/
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+}
+
+#sell h2 {
+	font-family: serif;
+	text-decoration: underline #873;
+}
+
+#sell label {
+	display: block;
+	text-align: left;
+	list-style-type: 
+}
+
+#sell input, #sell select, #sell textarea {
+	width: 100%;
+}
+
+#sell textarea {
+	height: 150px;
+}
 
 
 /* full search page --end */

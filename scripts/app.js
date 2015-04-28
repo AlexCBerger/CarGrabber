@@ -1,5 +1,9 @@
 angular.module('car3380', ['ngRoute']).config(function($routeProvider) {
 	// console.log("asdasdasdas");
+
+  //Todo
+  //should add a router for /results and in the path load the results.html
+
     $routeProvider.when('/', {
       templateUrl: 'views/main.html',
       // controller:'loginCtrl'
@@ -7,15 +11,18 @@ angular.module('car3380', ['ngRoute']).config(function($routeProvider) {
       templateUrl: 'views/test.html',
       // controller:'loginCtrl'
     }).when('/sell', {
-      templateUrl: 'views/test.html',
+      templateUrl: 'views/sell.html',
+    }).when('/profile', {
+      templateUrl: 'views/profile.html',
       // controller:'loginCtrl'
-    }).when('/reviews', {
-      templateUrl: 'views/test.html',
+    }).when('/results', {
+      templateUrl: 'views/results.html',
       // controller:'loginCtrl'
-    }).when('/search', {
-      templateUrl: 'views/fullsearch.html',
-      // controller:'loginCtrl'
-    }); //.when('sd', {
+    });
+    //.when('/search', {
+    //   templateUrl: 'views/fullsearch.html',
+    //   // controller:'loginCtrl'
+    // }); //.when('sd', {
     //   templateUrl: 'views/team_details.html',
     //   controller:'TeamDetailsCtrl as teamDetailsCtrl',
     //   resolve: {
